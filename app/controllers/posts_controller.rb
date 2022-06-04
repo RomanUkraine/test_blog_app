@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: %i[show edit update destroy]
+  before_action :authenticate_user!
 
   def index
     @posts = Post.all.order(created_at: :desc)
@@ -8,14 +9,15 @@ class PostsController < ApplicationController
 
   def show; end
 
-  def new
-    @post = Post.new
-  end
+  # def new
+  #   @post = Post.new
+  # end
+  # TODO: update routes to exclude this action
 
   def edit; end
 
   def create
-    @post = Post.new(post_params)
+    @post = current_user.posts.new(post_params)
 
     respond_to do |format|
       if @post.save
@@ -68,6 +70,6 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :body, :likes)
+    params.require(:post).permit(:title, :body, :likes, :user_id)
   end
 end
