@@ -72,7 +72,8 @@
           </div>
         </div>
 
-        <div class="block">
+        <% if user_signed_in? %>
+          <div class="block">
             <div class="inline relative">
                 <button type="button" class="inline-flex items-center relative px-2 border rounded-full hover:shadow-lg">
                     <div class="pl-1">
@@ -106,7 +107,11 @@
                     </div>
                 </button>
             </div>
-        </div>
+          </div>
+          <div class="flex items-baseline justify-between">
+            <%= link_to "Logout", destroy_user_session_path, data: { turbo_method: :delete }, class: "px-6 py-2 mt-4 text-white bg-blue-600 rounded-lg hover:bg-blue-900" %>
+          </div>
+        <% end %>
       </div>
     </div>
     <!-- end login -->
