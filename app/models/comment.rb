@@ -3,4 +3,5 @@ class Comment < ApplicationRecord
   belongs_to :post
 
   # TODO: add validations
+  # TODO: add likes
 end

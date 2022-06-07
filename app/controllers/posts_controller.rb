@@ -4,10 +4,12 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all.order(created_at: :desc)
+    # TODO: include comments + lazy_load
     @post = Post.new
+    @comment = Comment.new
   end
 
-  def show; end
+  # def show; end
 
   # def new
   #   @post = Post.new

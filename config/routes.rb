@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :comments
+  resources :comments # TODO: only create, new
   devise_for :users
   resources :posts
 
