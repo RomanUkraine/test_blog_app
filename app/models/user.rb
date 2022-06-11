@@ -9,11 +9,12 @@ class User < ApplicationRecord
   has_many :posts
   has_many :comments
 
+  validates :email, presence: true, length: {maximum: 50}, unique: true
+  validates_presence_of :first_name, :last_name
+  validates :admin, inclusion: [true, false]
+
+
   def full_name
     "#{first_name} #{last_name}"
   end
-
-
-  # TODO: add validations
-  # TODO: add callback to set last_seen_at
 end

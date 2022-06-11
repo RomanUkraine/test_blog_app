@@ -1,11 +1,13 @@
 class Post < ApplicationRecord
-  validates_presence_of :body, :title
-
   belongs_to :user
   has_many :comments, dependent: :destroy
 
-  after_create_commit { broadcast_prepend_to :posts }
+  validates :title, presence: true, length: {maximum: 50}
+  validates :body, presence: true, length: {maximum: 140}
 
-  # TODO: add popular scope (sorted by likes)
-  # TODO: add likes
+
+  after_create_commit { broadcast_prepend_to :posts }
+  # TODO: change to after update
+
+  # TODO: add popular scope (sorted by likes), recent, oldest
 end
