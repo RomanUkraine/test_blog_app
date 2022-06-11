@@ -7,6 +7,7 @@ class Comment < ApplicationRecord
 
 
   after_create_commit -> { broadcast_append_to :comments }
+  # TODO: make above work
   # TODO: add after update commit
 
 

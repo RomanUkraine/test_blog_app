@@ -7,7 +7,6 @@ class CommentsController < ApplicationController
         format.turbo_stream
       else
         # TODO: display error
-        flash[:error] = "Something went wrong"
       end
     end
   end

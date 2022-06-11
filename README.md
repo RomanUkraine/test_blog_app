@@ -26,9 +26,7 @@
 - add FB/twitter share
 - add copy to clipboard
 - add caching?
-- form add char count - IN PROGRESS
-- fix create btn on form - IN PROGRESS
-
+- new form restyle disabled btn - IN PROGRESS
 
 ## User
 - add user location (dynamic fields or given by location gem)
