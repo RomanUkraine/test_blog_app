@@ -9,7 +9,7 @@ export default class Menu extends Controller {
   }
 
   clickOutside(event) {
-    event.preventDefault();
+    // event.preventDefault();
     this.toggleableTarget.classList.add('hidden');
   }
 

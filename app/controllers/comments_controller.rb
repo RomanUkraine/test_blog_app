@@ -2,10 +2,13 @@ class CommentsController < ApplicationController
   def create
     @comment = current_user.comments.new(comment_params)
 
-    if @comment.save
-      flash[:success] = "Object successfully created"
-    else
-      flash[:error] = "Something went wrong"
+    respond_to do |format|
+      if @comment.save
+        format.turbo_stream
+      else
+        # TODO: display error
+        flash[:error] = "Something went wrong"
+      end
     end
   end
 
