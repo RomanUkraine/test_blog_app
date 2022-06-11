@@ -1,5 +1,4 @@
-<turbo-frame id="<%= dom_id post %>">
-  <%= form_with(model: post) do |form| %>
+  <%= form_with(model: post, id: "#{dom_id(post)}_form") do |form| %>
 
     <div class="heading text-center font-bold text-2xl m-5 text-gray-800">New Post</div>
     <style>
@@ -22,13 +21,11 @@
           <div class="count ml-auto text-gray-400 text-xs font-semibold">0/300</div>
         </div>
         <!-- buttons -->
-        <div class="buttons flex">
-          <div class="btn border border-gray-300 p-1 px-4 font-semibold cursor-pointer text-gray-500 ml-auto">Cancel</div>
-          <div class="btn border border-indigo-500 p-1 px-4 font-semibold cursor-pointer text-gray-200 ml-2 bg-indigo-500">
+        <!-- <div class="buttons flex">  -->
+         <!-- <div class="btn border border-indigo-500 p-1 px-4 font-semibold cursor-pointer text-gray-200 ml-2 bg-indigo-500">  -->
             <%= form.submit %>
-          </div>
-        </div>
+         <!-- </div>  -->
+       <!-- </div>  -->
       </div>
 
   <% end %>
-</turbo-frame>

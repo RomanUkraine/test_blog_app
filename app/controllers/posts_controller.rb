@@ -4,15 +4,10 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all.order(created_at: :desc)
-    @post = Post.new
+    # TODO: include comments + lazy_load
   end
 
-  def show; end
-
-  # def new
-  #   @post = Post.new
-  # end
-  # TODO: update routes to exclude this action
+  # TODO: update routes to eclude unused actions
 
   def edit; end
 
@@ -21,19 +16,10 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
-        format.turbo_stream do
-          render turbo_stream:
-                   turbo_stream.replace(
-                     @post,
-                     partial: 'posts/form',
-                     locals: {
-                       post: @post
-                     }
-                   )
-        end
+        format.turbo_stream
       else
+        # TODO: display error
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
       end
     end
   end
