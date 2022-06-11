@@ -20,6 +20,7 @@
 - add FB/twitter share
 - add copy to clipboard
 - add caching?
+- form add char count
 
 
 ## User
@@ -42,3 +43,5 @@
 - add replies
 - add mentions
 - add smiles
+- add char count (limit to 140)
+- add create btn (icon)
