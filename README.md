@@ -18,6 +18,7 @@
 - add search
 - reconfigure for signed in/unsigned user - IN PROGRESS
 
+
 ## Post
 - add likes (polymorphic, to comments too) - IN PROGRESS
 - add (inline?) editing
@@ -26,7 +27,7 @@
 - add FB/twitter share
 - add copy to clipboard
 - add caching?
-- new form restyle disabled btn - IN PROGRESS
+
 
 ## User
 - add user location (dynamic fields or given by location gem)

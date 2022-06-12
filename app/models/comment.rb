@@ -11,6 +11,5 @@ class Comment < ApplicationRecord
   # TODO: add after update commit
 
 
-  # TODO: add validations
   # TODO: after_create -> notify admins
 end
