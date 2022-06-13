@@ -20,7 +20,7 @@ export default class extends Controller {
     let titleChars = this.titleTarget.value.trim().length;
     let bodyChars = this.bodyTarget.value.trim().length;
 
-    this.titleCountTarget.textContent = `${titleChars}/50`;
+    this.titleCountTarget.textContent = `${titleChars}/${titleMaxChars}`;
     this.bodyCountTarget.textContent = `${bodyChars}/${bodyMaxChars}`;
 
     // if title or body contains only whitespace or has 0 chars

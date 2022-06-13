@@ -1,12 +1,26 @@
-<%= form_with(model: comment, id: "new_comment_form_#{dom_id(post)}", class: "w-full") do |f| %>
-  <div data-controller="input-resize">
+<div data-controller="new-comment" class="w-full">
+  <%= form_with(model: comment,
+                id: "new_comment_form_#{dom_id(post)}",
+                data: { new_comment_target: 'form' }
+              ) do |f| %>
+
     <%= f.text_area :body,
         class: 'w-full py-2 pl-4 pr-10 text-sm bg-gray-100 border border-transparent appearance-none rounded-tg placeholder-gray-400 focus:bg-white focus:outline-none focus:border-blue-500 focus:text-gray-900 focus:shadow-outline-blue',
         style: 'border-radius: 25px',
         placeholder: 'Post a comment...',
-        data: { action: 'input->input-resize#resize', input_resize_target: 'commentInput' }
+        data: {
+          new_comment_target: 'input',
+          action: 'input->new-comment#resize keyup->new-comment#updateCount keydown->new-comment#submitWithEnter'
+        },
+        maxLength: Comment::MAX_CHARS
     %>
-  </div>
-  <%= f.hidden_field :post_id, value: post.id %>
-  <%= f.submit %>
-<% end %>
+
+    <%= f.hidden_field :post_id, value: post.id %>
+
+    <div class="icons flex m-2">
+      <div data-new-comment-target="inputCount" class="ml-auto text-gray-400 text-xs font-semibold">
+        0/<%= Comment::MAX_CHARS %>
+      </div>
+    </div>
+  <% end %>
+</div>
