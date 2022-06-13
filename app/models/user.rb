@@ -6,6 +6,8 @@ class User < ApplicationRecord
          :validatable,
          :trackable
 
+  acts_as_voter
+
   has_many :posts
   has_many :comments
 

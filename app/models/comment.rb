@@ -1,6 +1,8 @@
 class Comment < ApplicationRecord
   MAX_CHARS = 400
 
+  acts_as_votable
+
   belongs_to :user
   belongs_to :post
 

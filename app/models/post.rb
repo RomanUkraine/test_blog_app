@@ -2,6 +2,8 @@ class Post < ApplicationRecord
   TITLE_MAX_CHARS = 50
   BODY_MAX_CHARS = 300
 
+  acts_as_votable
+
   belongs_to :user
   has_many :comments, dependent: :destroy
 
@@ -10,8 +12,8 @@ class Post < ApplicationRecord
 
   before_validation :strip_inputs
 
-  after_create_commit { broadcast_prepend_to :posts }
-  # TODO: change to after update
+  after_create_commit -> { broadcast_prepend_later_to :posts, locals: { user: :current_user, post: self } }
+  # TODO: add after update
 
   # TODO: add popular scope (sorted by likes), recent, oldest
 

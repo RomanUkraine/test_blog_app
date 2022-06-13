@@ -20,7 +20,6 @@
 
 
 ## Post
-- add likes (polymorphic, to comments too) - IN PROGRESS
 - add (inline?) editing
 - add repost
 - a list of ppl who liked
@@ -50,5 +49,5 @@
 - add replies
 - add mentions
 - add smiles
-- add char count (limit to 140) - IN PROGRESS
 - add create btn (icon)
+- add likes - IN PROGRESS
