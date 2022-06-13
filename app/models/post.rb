@@ -1,9 +1,12 @@
 class Post < ApplicationRecord
+  TITLE_MAX_CHARS = 50
+  BODY_MAX_CHARS = 300
+
   belongs_to :user
   has_many :comments, dependent: :destroy
 
-  validates :title, presence: true, length: {maximum: 50}
-  validates :body, presence: true, length: {maximum: 140}
+  validates :title, presence: true, length: { maximum: TITLE_MAX_CHARS }
+  validates :body, presence: true, length: { maximum: BODY_MAX_CHARS }
 
   before_validation :strip_inputs
 

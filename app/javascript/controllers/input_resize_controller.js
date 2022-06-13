@@ -1,13 +1,13 @@
 import { Controller } from "@hotwired/stimulus";
 
 export default class extends Controller {
-  static targets = ["input"];
+  static targets = ["commentInput"];
 
   connect() {
-      this.inputTarget.style.resize = 'none';
-      this.inputTarget.style.minHeight = `${this.inputTarget.scrollHeight}px`;
+      this.commentInputTarget.style.resize = 'none';
+      this.commentInputTarget.style.minHeight = `${this.commentInputTarget.scrollHeight}px`;
       // prevent the scrollbar from appearing when adding text
-      this.inputTarget.style.overflow = 'hidden';
+      this.commentInputTarget.style.overflow = 'hidden';
   }
 
   resize(event){

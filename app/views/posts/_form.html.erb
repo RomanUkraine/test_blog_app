@@ -7,19 +7,25 @@
     <%= form.text_field :title,
             class: 'bg-gray-100 border border-gray-300 p-2 outline-none',
             placeholder: 'Title',
-            data: { new_post_target: 'title', action: 'keyup->new-post#updateCount' }
+            data: { new_post_target: 'title', action: 'keyup->new-post#updateCount' },
+            maxLength: Post::TITLE_MAX_CHARS
     %>
-    <div class="icons flex text-gray-500 m-2">
-      <div data-new-post-target="titleCount" class="ml-auto text-gray-400 text-xs font-semibold">0/50</div>
+    <div class="icons flex m-2">
+      <div data-new-post-target="titleCount" class="ml-auto text-gray-400 text-xs font-semibold">
+        0/<%= Post::TITLE_MAX_CHARS %>
+      </div>
     </div>
 
     <%= form.text_area :body,
             class: 'bg-gray-100 sec p-3 h-60 border border-gray-300 outline-none',
             placeholder: 'Describe the post here..',
-            data: { new_post_target: 'body', action: 'keyup->new-post#updateCount' }
+            data: { new_post_target: 'body', action: 'keyup->new-post#updateCount' },
+            maxLength: Post::BODY_MAX_CHARS
     %>
     <div class="icons flex text-gray-500 m-2">
-      <div data-new-post-target="bodyCount" class="ml-auto text-gray-400 text-xs font-semibold">0/140</div>
+      <div data-new-post-target="bodyCount" class="ml-auto text-gray-400 text-xs font-semibold">
+        0/<%= Post::BODY_MAX_CHARS %>
+      </div>
     </div>
 
     <div class="buttons flex">
