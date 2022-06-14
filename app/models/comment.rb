@@ -1,11 +1,17 @@
 class Comment < ApplicationRecord
+  MAX_CHARS = 400
+
+  acts_as_votable
+
   belongs_to :user
   belongs_to :post
 
+  validates :body, presence: true, length: { maximum: MAX_CHARS }
+
   after_create_commit -> { broadcast_append_to :comments }
-  # TODO: add after destroy commit
+  # TODO: make above work
   # TODO: add after update commit
 
 
-  # TODO: add validations
+  # TODO: after_create -> notify admins
 end

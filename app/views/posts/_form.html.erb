@@ -1,31 +1,37 @@
-  <%= form_with(model: post, id: "#{dom_id(post)}_form") do |form| %>
+<%= form_with(model: post, id: "#{dom_id(post)}_form", data: {controller: 'new-post'}) do |form| %>
+  <style>
+    body {background:white !important;}
+  </style>
 
-    <div class="heading text-center font-bold text-2xl m-5 text-gray-800">New Post</div>
-    <style>
-      body {background:white !important;}
-    </style>
-      <div class="editor mx-auto w-10/12 flex flex-col text-gray-800 border border-gray-300 p-4 shadow-lg max-w-2xl">
-
-        <%= form.text_field :title,
-            class: 'title bg-gray-100 border border-gray-300 p-2 mb-4 outline-none',
-            placeholder: 'Title'
-        %>
-
-        <%= form.text_area :body,
-            class: 'description bg-gray-100 sec p-3 h-60 border border-gray-300 outline-none',
-            placeholder: 'Describe the post here..'
-        %>
-
-        <!-- icons -->
-        <div class="icons flex text-gray-500 m-2">
-          <div class="count ml-auto text-gray-400 text-xs font-semibold">0/300</div>
-        </div>
-        <!-- buttons -->
-        <!-- <div class="buttons flex">  -->
-         <!-- <div class="btn border border-indigo-500 p-1 px-4 font-semibold cursor-pointer text-gray-200 ml-2 bg-indigo-500">  -->
-            <%= form.submit %>
-         <!-- </div>  -->
-       <!-- </div>  -->
+  <div class="editor mx-auto w-10/12 flex flex-col text-gray-800 border border-gray-300 p-4 shadow-lg max-w-2xl">
+    <%= form.text_field :title,
+            class: 'bg-gray-100 border border-gray-300 p-2 outline-none',
+            placeholder: 'Title',
+            data: { new_post_target: 'title', action: 'keyup->new-post#updateCount' },
+            maxLength: Post::TITLE_MAX_CHARS
+    %>
+    <div class="icons flex m-2">
+      <div data-new-post-target="titleCount" class="ml-auto text-gray-400 text-xs font-semibold">
+        0/<%= Post::TITLE_MAX_CHARS %>
       </div>
+    </div>
 
-  <% end %>
+    <%= form.text_area :body,
+            class: 'bg-gray-100 sec p-3 h-60 border border-gray-300 outline-none',
+            placeholder: 'Describe the post here..',
+            data: { new_post_target: 'body', action: 'keyup->new-post#updateCount' },
+            maxLength: Post::BODY_MAX_CHARS
+    %>
+    <div class="icons flex text-gray-500 m-2">
+      <div data-new-post-target="bodyCount" class="ml-auto text-gray-400 text-xs font-semibold">
+        0/<%= Post::BODY_MAX_CHARS %>
+      </div>
+    </div>
+
+    <div class="buttons flex">
+      <%= form.submit "Create Post",
+          class: "w-full text-center py-3 rounded bg-indigo-600 text-white hover:bg-green-dark focus:outline-none disabled:bg-slate-50 disabled:text-slate-500"
+      %>
+    </div>
+  </div>
+<% end %>

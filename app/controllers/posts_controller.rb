@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: %i[show edit update destroy]
+  before_action :set_post, only: %i[show edit update destroy like]
   before_action :authenticate_user!
 
   def index
@@ -7,7 +7,7 @@ class PostsController < ApplicationController
     # TODO: include comments + lazy_load
   end
 
-  # TODO: update routes to eclude unused actions
+  # TODO: update routes to include unused actions
 
   def edit; end
 
@@ -46,6 +46,18 @@ class PostsController < ApplicationController
         redirect_to posts_url, notice: 'Post was successfully destroyed.'
       end
       format.json { head :no_content }
+    end
+  end
+
+  def like
+    if params[:type] == 'like'
+      @post.liked_by current_user
+    elsif params[:type] == 'unlike'
+      @post.unliked_by current_user
+    end
+
+    respond_to do |format|
+      format.turbo_stream
     end
   end
 

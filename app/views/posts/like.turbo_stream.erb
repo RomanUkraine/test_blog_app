@@ -1,0 +1,9 @@
+<%= turbo_stream.replace "likes_#{dom_id(@post)}" do %>
+  <%= render 'like', post: @post %>
+<% end %>
+
+<%= turbo_stream.replace "likes_#{dom_id(@post)}_count" do %>
+  <%= turbo_frame_tag "likes_#{dom_id(@post)}_count" do %>
+    <%= @post.votes_for.size %>
+  <% end %>
+<% end %>
