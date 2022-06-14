@@ -17,6 +17,11 @@ class Post < ApplicationRecord
 
   # TODO: add popular scope (sorted by likes), recent, oldest
 
+  def self.search(params)
+    query = "%#{sanitize_sql_like(params[:query])}%" if params[:query]
+    params[:query].blank? ? all : where("title LIKE ? OR body LIKE ?", query, query)
+  end
+
   private
 
   def strip_inputs

@@ -15,8 +15,6 @@
 
 ## Navigation
 - add notifications
-- add search
-- reconfigure for signed in/unsigned user - IN PROGRESS
 
 
 ## Post
@@ -26,6 +24,7 @@
 - add FB/twitter share
 - add copy to clipboard
 - add caching?
+- add Delete post
 
 
 ## User
@@ -51,3 +50,5 @@
 - add smiles
 - add create btn (icon)
 - add likes - IN PROGRESS
+- add Delete comment
+- add Edit comment
