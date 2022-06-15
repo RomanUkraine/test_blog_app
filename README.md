@@ -1,6 +1,7 @@
 # TODO
 
 ## General
+- add Setup instructions
 - add bullet gem
 - add kafka
 - add service object?

@@ -2,18 +2,6 @@
 
 <%= render 'form', post: Post.new %>
 
-<%= form_tag posts_path,
-    method: :get,
-    data: {
-      turbo_frame: 'search-results',
-      turbo_action: 'advance',
-      controller: 'search',
-      action: 'input->search#submit'
-    } do |f| %>
-  <%= text_field_tag "query", nil, placeholder: "Search..." %>
-  <%= submit_tag "Search" %>
-<% end %>
-
 <%= turbo_frame_tag 'search-results' do %>
   <div id="posts">
     <%= render @posts %>
