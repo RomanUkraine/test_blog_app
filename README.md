@@ -1,5 +1,13 @@
 # TODO
 
+## IN PROGRESS
+- add photo to post
+- form photo preview
+- edit post
+- edit post photo preview
+
+
+
 ## General
 - add Setup instructions
 - add bullet gem
@@ -16,6 +24,7 @@
 
 ## Navigation
 - add notifications
+- make responsive
 
 
 ## Post
@@ -26,15 +35,18 @@
 - add copy to clipboard
 - add caching?
 - add Delete post
+- move search to trigram (https://about.gitlab.com/blog/2016/03/18/fast-search-using-postgresql-trigram-indexes/)
+- make grey background
 
 
 ## User
+- add profile
 - add user location (dynamic fields or given by location gem)
 - add user profile complete?
 - add dashboard
 - add user profile (ability to paste youtube link, add photos)
 - add ability to upload files
-- add avatar
+- add avatar (https://m.youtube.com/watch?v=BYvzLYRIZK4)
 - add friends (add/unfriend/block)
 - add notifications (user mentions, new comment, like, repost)
 - add profile views
@@ -43,6 +55,7 @@
 - add last seen online
 - add settings (dark/white background, specific notifications on/off, hide photos/videos/friends). Like Feature Flags
 - add ability to make profile private (unless friend)
+- add messages (https://m.youtube.com/watch?v=UvTLumcEMgU&t)
 
 
 ## Comment
@@ -50,6 +63,6 @@
 - add mentions
 - add smiles
 - add create btn (icon)
-- add likes - IN PROGRESS
+- add likes
 - add Delete comment
 - add Edit comment
