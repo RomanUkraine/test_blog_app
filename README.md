@@ -1,9 +1,8 @@
 # TODO
 
 ## IN PROGRESS
-- add photo to post
 - form photo preview
-- edit post
+- edit post (post modal open)
 - edit post photo preview
 
 
@@ -20,6 +19,8 @@
 - add facebook auth
 - work on page speed
 - handle validation errors - IN PROGRESS
+- add graphql?
+- separate db for read/write
 
 
 ## Navigation
@@ -28,7 +29,6 @@
 
 
 ## Post
-- add (inline?) editing
 - add repost
 - a list of ppl who liked
 - add FB/twitter share
@@ -37,6 +37,7 @@
 - add Delete post
 - move search to trigram (https://about.gitlab.com/blog/2016/03/18/fast-search-using-postgresql-trigram-indexes/)
 - make grey background
+- add rich text
 
 
 ## User
