@@ -8,7 +8,7 @@ class PostsController < ApplicationController
     # TODO: include comments + lazy_load
   end
 
-  # TODO: update routes to include unused actions
+  # TODO: update routes to exclude unused actions
 
   def edit; end
 
@@ -69,6 +69,6 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :body, :likes, :user_id)
+    params.require(:post).permit(:title, :body, :likes, :user_id, :image)
   end
 end
