@@ -28,10 +28,7 @@ class PostsController < ApplicationController
   def update
     respond_to do |format|
       if @post.update(post_params)
-        format.html do
-          redirect_to post_url(@post), notice: 'Post was successfully updated.'
-        end
-        format.json { render :show, status: :ok, location: @post }
+        format.turbo_stream
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @post.errors, status: :unprocessable_entity }

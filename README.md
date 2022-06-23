@@ -1,8 +1,7 @@
 # TODO
 
 ## IN PROGRESS
-- form photo preview
-- edit post (post modal open)
+- Create/Update fix buttons
 - edit post photo preview
 
 
@@ -13,14 +12,19 @@
 - add kafka
 - add service object?
 - add presenter pattern
-- add UI tests
-- add unit tests
+- add unit tests (for service object)
 - add background jobs
 - add facebook auth
 - work on page speed
 - handle validation errors - IN PROGRESS
 - add graphql?
 - separate db for read/write
+- add list of libs used and their purpose
+- add ruby profiler
+- add rubocop
+- add auto delete branch after merge
+- add github actions
+
 
 
 ## Navigation
@@ -28,7 +32,9 @@
 - make responsive
 
 
+
 ## Post
+Main:
 - add repost
 - a list of ppl who liked
 - add FB/twitter share
@@ -36,8 +42,12 @@
 - add caching?
 - add Delete post
 - move search to trigram (https://about.gitlab.com/blog/2016/03/18/fast-search-using-postgresql-trigram-indexes/)
+
+Secondary:
+- if no search results - show text
+- add rich text?
+- add photos lazy loading
 - make grey background
-- add rich text
 
 
 ## User

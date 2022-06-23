@@ -1,5 +1,11 @@
-<%= form_with(model: post, id: "#{dom_id(post)}_form", data: {controller: 'new-post', action: 'new-post-modal:click:outside->new-post-modal#close'}) do |form| %>
-  <div data-new-post-modal-target="newPostModal" class="relative z-10 hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+<%= form_with(model: post, id: "new_post_form",
+class: "relative z-10",
+role: "dialog",
+aria_modal: "true",
+data: {
+  new_post_target: 'newPostModal',
+  action: "turbo:submit-end->new-post#afterSubmit"
+  }) do |form| %>
     <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
 
     <div class="fixed z-10 inset-0 overflow-y-auto">
@@ -10,19 +16,19 @@
 
 
 
-<div data-controller="image-form">
-  <%# <input type="file" accept="image/*" data-image-form-target="imageUploader" data-action="image-form#updatePreview"> %>
-  <%= form.file_field :image, id: 'file_input',
-  data: {image_form_target: 'imageUploader', action: 'image-form#updatePreview'},
-            class: "block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
-  %>
-  <div class="preview-section d-none" data-image-form-target="previewSection">
-    <img src="./src/image-preview.svg" data-image-form-target="imagePreview">
-    <button class="clear" data-image-form-target="clearUpload" data-action="image-form#clearUpload">
-      Clear
-    </button>
-  </div>
-</div>
+      <div data-controller="image-form">
+        <%= form.file_field :image, id: 'file_input',
+          data: {image_form_target: 'imageUploader', action: 'image-form#updatePreview'},
+          class: "block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+        %>
+        <!-- add accept="image/*" to file field -->
+        <div class="preview-section d-none" data-image-form-target="previewSection">
+          <img src="./src/image-preview.svg" data-image-form-target="imagePreview">
+          <button class="clear" data-image-form-target="clearUpload" data-action="image-form#clearUpload">
+            Clear
+          </button>
+        </div>
+      </div>
 
 
 
@@ -55,18 +61,20 @@
               <div class="buttons flex">
                 <button
                     class="w-full text-center py-3 rounded bg-indigo-600 text-white hover:bg-green-dark focus:outline-none disabled:bg-slate-50 disabled:text-slate-500"
-                    data-action="click->new-post-modal#close"
+                    data-action="click->new-post#close"
                 >
                   Cancel
                 </button>
 
                 <%= form.submit "Create Post",
-                    class: "w-full text-center py-3 rounded bg-indigo-600 text-white hover:bg-green-dark focus:outline-none disabled:bg-slate-50 disabled:text-slate-500"
+                    class: "w-full text-center py-3 rounded bg-indigo-600 text-white hover:bg-green-dark focus:outline-none disabled:bg-slate-50 disabled:text-slate-500"#,
+                    # data: {
+                    #   action: "click->new-post#submit"
+                    # }
                 %>
               </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
 <% end %>
