@@ -8,10 +8,26 @@ function onlySpaces(str) {
 }
 
 export default class extends Controller {
-  static targets = ["title", "body", "titleCount", "bodyCount"];
+  static targets = ["title", "body", "titleCount", "bodyCount", "newPostModal"];
 
   connect(){
+    this.newPostModalTarget.classList.add('hidden');
     document.getElementsByName("commit")[0].setAttribute("disabled", true);
+  }
+
+  afterSubmit() {
+    this.newPostModalTarget.reset();
+    this.close();
+  }
+
+  open() {
+    this.newPostModalTarget.classList.remove('hidden');
+  }
+
+  // TODO: add outside modal click
+  close(e) {
+    e.preventDefault();
+    this.newPostModalTarget.classList.add('hidden');
   }
 
   updateCount() {
@@ -31,4 +47,5 @@ export default class extends Controller {
       document.getElementsByName("commit")[0].removeAttribute("disabled");
     }
   }
+
 }
