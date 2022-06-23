@@ -23,7 +23,12 @@ data: {
         %>
         <!-- add accept="image/*" to file field -->
         <div class="preview-section d-none" data-image-form-target="previewSection">
-          <img src="./src/image-preview.svg" data-image-form-target="imagePreview">
+          <% if post.persisted? && post.image.attached? %>
+            <%= image_tag post.image, data: { image_form_target: 'imagePreview' } %>
+          <% else %>
+            <img src="#" data-image-form-target="imagePreview">
+          <% end %>
+
           <button class="clear" data-image-form-target="clearUpload" data-action="image-form#clearUpload">
             Clear
           </button>

@@ -1,19 +1,14 @@
 import { Controller } from "@hotwired/stimulus";
 
 export default class extends Controller {
-  static targets = [
-    "imageUploader",
-    "previewSection",
-    "imagePreview",
-    "clearUpload"
-  ];
+  static targets = ["imageUploader", "previewSection", "imagePreview", "clearUpload"];
 
   connect() {
     this.updatePreview();
   }
 
   updatePreview() {
-    this.imageUploaderTarget.files.length
+    this.imageUploaderTarget.files.length || this.imagePreviewTarget.src !== '#'
       ? this.showPreview()
       : this.hidePreview();
   }
@@ -22,16 +17,17 @@ export default class extends Controller {
     this.imagePreviewTarget.src = URL.createObjectURL(
       this.imageUploaderTarget.files[0]
     );
-    this.previewSectionTarget.classList.remove("d-none");
+    this.previewSectionTarget.classList.remove("hidden");
   }
 
   hidePreview() {
-    this.previewSectionTarget.classList.add("d-none");
+    this.previewSectionTarget.classList.add("hidden");
   }
 
-  clearUpload() {
+  clearUpload(e) {
+    e.preventDefault()
     this.imageUploaderTarget.value = null;
-    this.updatePreview();
+    this.hidePreview();
   }
 
 }

@@ -11,11 +11,8 @@ export default class extends Controller {
   static targets = ["title", "body", "titleCount", "bodyCount", "newPostModal"];
 
   connect(){
-    document.getElementsByName("commit")[0].setAttribute("disabled", true);
-  }
-
-  initialize() {
     this.newPostModalTarget.classList.add('hidden');
+    document.getElementsByName("commit")[0].setAttribute("disabled", true);
   }
 
   afterSubmit() {
@@ -50,4 +47,5 @@ export default class extends Controller {
       document.getElementsByName("commit")[0].removeAttribute("disabled");
     }
   }
+
 }

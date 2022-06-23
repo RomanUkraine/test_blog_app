@@ -1,7 +1,7 @@
 # TODO
 
 ## IN PROGRESS
-- edit post photo preview
+- fix Cancel btn on edit
 - fix modal appearance on page load
 
 
@@ -48,6 +48,7 @@ Secondary:
 - add rich text?
 - add photos lazy loading
 - make grey background
+- add margin between Cancel and Create btns
 
 
 ## User
