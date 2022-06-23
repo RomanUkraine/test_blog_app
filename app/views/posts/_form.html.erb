@@ -66,11 +66,8 @@ data: {
                   Cancel
                 </button>
 
-                <%= form.submit "Create Post",
-                    class: "w-full text-center py-3 rounded bg-indigo-600 text-white hover:bg-green-dark focus:outline-none disabled:bg-slate-50 disabled:text-slate-500"#,
-                    # data: {
-                    #   action: "click->new-post#submit"
-                    # }
+                <%= form.submit "#{params[:action] == 'index' ? 'Create' : 'Update'}",
+                    class: "w-full text-center py-3 rounded bg-indigo-600 text-white hover:bg-green-dark focus:outline-none disabled:bg-slate-50 disabled:text-slate-500"
                 %>
               </div>
           </div>

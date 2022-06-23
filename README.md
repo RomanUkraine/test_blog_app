@@ -1,8 +1,8 @@
 # TODO
 
 ## IN PROGRESS
-- Create/Update fix buttons
 - edit post photo preview
+- fix modal appearance on page load
 
 
 

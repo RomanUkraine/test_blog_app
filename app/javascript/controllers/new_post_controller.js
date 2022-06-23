@@ -28,7 +28,8 @@ export default class extends Controller {
   }
 
   // TODO: add outside modal click
-  close() {
+  close(e) {
+    e.preventDefault();
     this.newPostModalTarget.classList.add('hidden');
   }
 
@@ -49,5 +50,4 @@ export default class extends Controller {
       document.getElementsByName("commit")[0].removeAttribute("disabled");
     }
   }
-
 }
