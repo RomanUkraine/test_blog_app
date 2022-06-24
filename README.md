@@ -4,9 +4,11 @@
 - Comment add mentions
 - Comment add likes
 - add Comment delete
-- add Comment/Post deleted notification
+- add Comment deleted notification
 - add comment/post edit/delete policy
 - add online icon to user avatar
+- FIX NEW POST MODAL
+- FLASH MOVE TO BOTTOM RIGHT
 
 - fix Cancel btn on edit
 - fix modal appearance on page load
