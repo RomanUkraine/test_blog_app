@@ -1,14 +1,15 @@
 # TODO
 
 ## IN PROGRESS
-- Comment add mentions
-- Comment add likes
+- add user status
+- FLASH MOVE TO BOTTOM RIGHT
 - add Comment delete
 - add Comment deleted notification
+- Comment add mentions
+- Comment add likes
 - add comment/post edit/delete policy
-- add online icon to user avatar
 - FIX NEW POST MODAL
-- FLASH MOVE TO BOTTOM RIGHT
+
 
 - fix Cancel btn on edit
 - fix modal appearance on page load

@@ -69,6 +69,7 @@ GEM
     acts_as_votable (0.13.2)
     addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
+    awesome_print (1.9.2)
     bcrypt (3.1.18)
     bindex (0.8.1)
     bootsnap (1.12.0)
@@ -240,6 +241,7 @@ PLATFORMS
 
 DEPENDENCIES
   acts_as_votable
+  awesome_print
   bootsnap
   capybara
   debug
