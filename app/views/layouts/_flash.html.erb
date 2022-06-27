@@ -1,0 +1,12 @@
+<% flash.each do |type, msg| %>
+  <div data-controller="flash" class="flex bg-white flex-row shadow-md border border-gray-100 rounded-lg overflow-hidden md:w-5/12">
+    <div class="flex w-3 bg-gradient-to-t <%= classes_for_flash(type) %>"></div>
+    <div class="flex-1 p-3">
+      <h1 class="md:text-xl text-gray-600"><%= flash_title(type) %></h1>
+      <p class="text-gray-400 text-xs md:text-sm font-light"><%= msg %></p>
+    </div>
+    <div data-action="click->flash#dismiss" class="cursor-pointer border-l hover:bg-gray-50 border-gray-100 px-4 flex place-items-center">
+      <p class="text-gray-400 text-xs">CLOSE</p>
+    </div>
+  </div>
+<% end %>

@@ -1,6 +1,16 @@
 # TODO
 
 ## IN PROGRESS
+- add user status
+- FLASH MOVE TO BOTTOM RIGHT
+- add Comment delete
+- add Comment deleted notification
+- Comment add mentions
+- Comment add likes
+- add comment/post edit/delete policy
+- FIX NEW POST MODAL
+
+
 - fix Cancel btn on edit
 - fix modal appearance on page load
 
@@ -24,11 +34,13 @@
 - add rubocop
 - add auto delete branch after merge
 - add github actions
+- add rack_attack (to prevent ddos)
+- add db schema
 
 
 
 ## Navigation
-- add notifications
+- add notifications (activity_notification)
 - make responsive
 
 
@@ -40,7 +52,6 @@ Main:
 - add FB/twitter share
 - add copy to clipboard
 - add caching?
-- add Delete post
 - move search to trigram (https://about.gitlab.com/blog/2016/03/18/fast-search-using-postgresql-trigram-indexes/)
 
 Secondary:
@@ -72,9 +83,12 @@ Secondary:
 
 ## Comment
 - add replies
-- add mentions
 - add smiles
 - add create btn (icon)
-- add likes
-- add Delete comment
 - add Edit comment
+
+
+
+PROFILE PAGE https://tailwindcomponents.com/component/social-ntwrk
+https://blog.corsego.com/acts-as-votable-4-hotwire
+https://tailwind-elements.com/
